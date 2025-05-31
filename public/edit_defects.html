@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Defect</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }      
+        
+
+        header {
+            text-align: center;
+            font-size: 20px;
+            padding: 5px;/* Reduced padding to make the header smaller */
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Adds space between logo and text */
+        }
+
+        .logo {
+            height: 90px; /* Adjust as needed */
+            margin-top: 2px;
+        }
+
+        .logout-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px ;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80px; /* Set a fixed width */
+            text-align: center; /* Ensures text is centered */
+            position: absolute; /* Positions the button absolutely */
+            top: 40px; /* Distance from the top */
+            right: 20px; /* Distance from the right */
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+        
+        h2{
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+        #form-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; /* Makes it responsive */
+            width: 100%;
+            margin-top: 30px; /* Added gap between header and form */
+        }
+
+         /* Image styling */
+        
+         .form-image {
+            width: 400px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 10px;
+            position: absolute;/*fix the image to the left margin*/
+            left: 10px;
+            top: 200px; /* Adjust based on header height */
+        }
+        .left-image {
+            left: 10px; /* Fix image to left */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 600px;
+            border-radius: 5px;
+
+        }
+
+        .right-image {
+            right: 10px; /* Fix image to right */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 300px;
+            border-radius: 5px;
+
+        }
+        .lt-image {
+            left: 10px; /* Fix image to left */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 1130px;
+            border-radius: 5px;
+
+        }
+        .rgt-image {
+            right: 10px; /* Fix image to right */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 800px;
+            border-radius: 5px;
+        }
+        .let-image {
+            left: 10px; /* Fix image to left */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 1530px;
+            border-radius: 5px;
+
+        }
+        .rt-image {
+            right: 10px; /* Fix image to right */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 1200px;
+            border-radius: 5px;
+        }
+        .rit-image {
+            right: 10px; /* Fix image to right */
+            width: 400px;
+            height: auto;
+            position:absolute;
+            top: 1700px;
+            border-radius: 5px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 2px 4px 8px rgb(19, 19, 19);
+            position: relative;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            background: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 2px 4px 8px rgb(10, 80, 38);
+            padding-bottom: 100px; /* Added extra bottom space */    
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            grid-column: span 2;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function logout() {
+            let confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                alert("You have been logged out successfully.");
+                window.location.href = "login.html"; // Redirects to login page
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("defectForm").addEventListener("submit", function(event) {
+                event.preventDefault();// Prevent default form submission
+                alert("Your report has been updated successfully!");// Show popup message
+                window.location.href = "index.html";// Redirect to index.html
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="./drdo.png" alt="Logo" class="logo">
+        <h1>Report a New Power Pack Defect</h1>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </header>
+
+    <section id="form-section">
+        <!-- Image placed to the left -->
+        <img src="./t 72.jpg" alt="Tank" class="form-image">
+        <!-- Left Side Image -->
+        <img src="./part.jpg" alt="part" class=" left-image">
+
+        <!-- Right Side Image -->
+        <img src="./pp.jpg" alt="powerpack" class=" right-image">
+
+        <!-- 2left side image-->
+        <img src="./engine.jpeg" alt="engine" class=" lt-image">
+
+        <!-- 2Right Side Image -->
+        <img src="./dr.jpg" alt="drd" class=" rgt-image">
+
+        <!-- Left Side Image -->
+        <img src="./whe.jpg" alt="whe" class=" let-image">
+
+        <!-- right Side Image -->
+        <img src="./wat.jpg" alt="wat" class=" rt-image">
+
+         <!-- right Side Image -->
+         <img src="./hyd.jpg" alt="hydralic pp" class=" rit-image">
+        
+        <!-- Form container -->
+        
+        <form id="defectForm">
+            <label for="defect_no">Defect No:</label>
+            <input type="number" id="defect_no" name="defect_no" required>
+            
+            <label for="defect_ref_no">Defect Ref. No:</label>
+            <input type="number" id="defect_ref_no" name="defect_ref_no" required>
+
+            <label for="engine_no">Engine No:</label>
+            <input type="text" id="engine_no" name="engine_no" required>
+            
+            <label for="tank_ba_no">Tank BA No:</label>
+            <input type="text" id="tank_ba_no" name="tank_ba_no" required>
+            
+            <label for="engine_hrs">Engine Hrs(at the time of defect):</label>
+            <input type="text" id="engine_hrs" name="engine_hrs" required>
+
+            <label for="km">KM(at the time of defect):</label>
+            <input type="text" id="km" name="km" required>
+
+            <label for="last_maintenance">Last Maintenance:</label>
+            <input type="date" id="last_maintenance" name="last_maintenance" required>
+
+            <label for="in-suit_di_date">In-Suit DI date:</label>
+            <input type="date" id="in-suit_di_date" name="in-suit_di_date" required>
+
+            <label for="receipt_hvf">Date of receipt at HVF</label>
+            <input type="date" id="receipt_hvf" name="receipt_hvf" required>
+
+            <label for="receipt_cvrde">Date of receipt at CVRDE</label>
+            <input type="date" id="receipt_cvrde" name="receipt_cvrde" required>
+
+            <label for="date_jri">Date of JRI:</label>
+            <input type="date" id="date_jri" name="dae_jri" required>
+            
+            <label for="detailed_di">Date of Detailed DI:</label>
+            <input type="date" id="detailed_di" name="detailed_di" required>
+
+            <label for="place_di">Place of Detailed DI:</label>
+            <input type="text" id="place_di" name="palce_di" required>
+
+            <label for="background_case">Background of the case:</label>
+            <input type="text" id="background_case" name="background_case" required>
+
+            <label for="investigation_report">Investigation Report:</label>
+            <input type="date" id="investigation_report" name="investigation_report" required>
+
+            <label for="nature_defect">Nature of Defect:</label>
+            <input type="text" id="nature_defect" name="nature_defect" required>
+
+            <label for="cause_failure">Cause of Failure:</label>
+            <input type="text" id="cause_failure" name="cause_failure" required>
+
+            <label for="rem_mes">Remedial Measure:</label>
+            <input type="text" id="rem_mes" name="rem_mes" required>
+
+            <label for="conclusion" class="full-width">Conclusion:</label>
+            <textarea id="conclusion" name="conclusion" class="full-width" required></textarea>
+
+            <label for="corr_prev">Corrective & Prevention:</label>
+            <input type="text" id="corr_prev" name="corr_prev" required>
+
+            <label for="holding_eqip">Unit Holding Equipment:</label>
+            <input type="text" id="holding_eqip" name="holding_eqip" required>
+
+        
+            <label for="issue_date">Date of issue of Unit:</label>
+            <input type="date" id="issue_date" name="issue_date" required>
+
+            <label for="rec_start">Defect Rectification Start date:</label>
+            <input type="date" id="rec_start" name="rec_start" required>
+
+            <label for="rec_com">Defect Rectification Completed:</label>
+            <input type="date" id="rec_com" name="rec_com" required>
+
+            <label for="coup_date">Coupling Engine/Txn Date:</label>
+            <input type="date" id="coup_date" name="coup_date" required>
+
+            <label for="net_main_date">Net Maintenance Date:</label>
+            <input type="date" id="net_main_date" name="net_main_date" required>
+            
+            <label for="pp_date">Testing PP Date:</label>
+            <input type="date" id="pp_date" name="pp_date" required>
+
+            <label for="backloading_date">Back Loading Date:</label>
+            <input type="date" id="backloading_date" name="backloading_date" required>
+            
+            <h2 class="full-width"><center>Another Salient Feature</center></h2>
+
+            <label for="part_no">Part No:</label>
+            <input type="text" id="part_no" name="part_no" required>
+
+            <label for="spares_con">Spares Consumed:</label>
+            <input type="number" id="spares_con" name="spares_con" required>
+
+            <label for="nom">Nomenclature:</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="remark">Remark:</label>
+            <textarea id="remark" name="remark" class="full-width" required></textarea>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Power Pack Defect Monitoring System</p>
+    </footer>
+</body>
+</html>

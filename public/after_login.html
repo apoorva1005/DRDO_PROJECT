@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="./drdo.png" alt="Logo" class="logo">
+        <h1>Power Pack Defect Monitoring System</h1>
+        <div class="auth-buttons">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <section id="container-section">
+        <div class="container" onclick="location.href='report_defect.html'">
+            <span>Report Defect</span>
+        </div>
+    
+        <div class="container" onclick="location.href='edit_defects.html'">
+            <span>Edit Defect</span>
+        </div>
+    
+        <div class="container" onclick="location.href='search.html'">
+            <span>Search Defects</span>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("logoutBtn").addEventListener("click", async function() {
+            try {
+                const response = await fetch("http://localhost:5000/logout", { 
+                    method: "POST",
+                    credentials: "include" // Ensure cookies/session are sent
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Logout successful!");
+                    window.location.href = "index.html"; // Redirect to homepage
+                } else {
+                    alert(data.message || "Logout failed. Try again.");
+                }
+            } catch (error) {
+                console.error("Logout error:", error);
+                alert("An error occurred while logging out.");
+            }
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Power Pack Defect Monitoring System</p>
+    </footer>
+
+</body>
+</html>
