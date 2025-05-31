@@ -11,5 +11,5 @@ A simple web-based application for managing tank defects, designed using **HTML*
 - 🗂️ MongoDB for storing all tank and defect data
 - 📦 Clean folder structure and modular backend using Express
 
-## 📁 Project Structure
+
 
